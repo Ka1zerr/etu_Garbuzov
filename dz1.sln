@@ -1,31 +1,79 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.11.35303.130
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dz1", "dz1.vcxproj", "{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}.Debug|x64.ActiveCfg = Debug|x64
-		{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}.Debug|x64.Build.0 = Debug|x64
-		{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}.Debug|x86.ActiveCfg = Debug|Win32
-		{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}.Debug|x86.Build.0 = Debug|Win32
-		{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}.Release|x64.ActiveCfg = Release|x64
-		{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}.Release|x64.Build.0 = Release|x64
-		{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}.Release|x86.ActiveCfg = Release|Win32
-		{E82EA56D-9A81-48C4-9F9F-E1D0B2FB6ED8}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B0930102-7367-48A1-8FC0-FF5A20D0D384}
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+#include <Windows.h>
+#include <conio.h>
+#include <stdbool.h>
+#include <locale.h>
+#include <malloc.h>
+
+
+int SumOfNumerals(int number)
+{
+    int numeral;
+    int sum = 0;
+    while (number != 0)
+    {
+        numeral = number % 10;
+        number /= 10;
+
+        sum += numeral;
+    }
+    return sum;
+}
+
+
+
+int main()
+{
+    int dr1 = 0; int dr2 = 0; int dr3 = 0;
+    int result = 0;
+    int sum = 0;
+    char arc1[] = { "Маг" }, arc2[] = "Верховная Жрица", arc3[] = "Императрица", arc4[] = "Император", arc5[] = "Иерофант", arc6[] = "Влюблённые", \
+        arc7[] = "Колесница", arc8[] = "Правосудие", arc9[] = "Отшельник", arc10[] = "Колесо Фортуны", arc11[] = "Сила", arc12[] = "Повешенный", \
+        arc13[] = "Смерть", arc14[] = "Умеренность", arc15[] = "Дьявол", arc16[] = "Башня", arc17[] = "Звезда", arc18[] = "Луна", \
+        arc19[] = "Солнце", arc20[] = "Суд", arc21[] = "Мир", arc22[] = "Шут";
+    setlocale(LC_ALL, "");
+    HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(h, (1 << 4) + 4); // старшие 4 бита - фон, младшие 4 бита - текст
+    while (true) {
+        system("cls");
+        printf("Введите дату рождения (формат ввода 00.00.0000): ");
+        if (scanf_s("%d.%d.%d", &dr1, &dr2, &dr3) != 3 || 31 < dr1 || dr1 < 0 || 13 < dr2 || dr2 < 0 || 1920 > dr3 || dr3 > 2040) {
+            dr1 = 0, dr2 = 0, dr3 = 0;
+            system("cls");
+            printf("Некорректные значения!");
+            scanf_s("%*[^\n]");
+            scanf_s("%*c");
+            _getch();
+        }
+        else {
+            sum = SumOfNumerals(dr1) + SumOfNumerals(dr2) + SumOfNumerals(dr3);
+            if (sum > 22) {
+                sum %= 22;
+            }
+            if (sum == 1) { printf("Ваш аркан: %s", arc1); }
+            if (sum == 2) { printf("Ваш аркан: %s", arc2); }
+            if (sum == 3) { printf("Ваш аркан: %s", arc3); }
+            if (sum == 4) { printf("Ваш аркан: %s", arc4); }
+            if (sum == 5) { printf("Ваш аркан: %s", arc5); }
+            if (sum == 6) { printf("Ваш аркан: %s", arc6); }
+            if (sum == 7) { printf("Ваш аркан: %s", arc7); }
+            if (sum == 8) { printf("Ваш аркан: %s", arc8); }
+            if (sum == 9) { printf("Ваш аркан: %s", arc9); }
+            if (sum == 10) { printf("Ваш аркан: %s", arc10); }
+            if (sum == 11) { printf("Ваш аркан: %s", arc11); }
+            if (sum == 12) { printf("Ваш аркан: %s", arc12); }
+            if (sum == 13) { printf("Ваш аркан: %s", arc13); }
+            if (sum == 14) { printf("Ваш аркан: %s", arc14); }
+            if (sum == 15) { printf("Ваш аркан: %s", arc15); }
+            if (sum == 16) { printf("Ваш аркан: %s", arc16); }
+            if (sum == 17) { printf("Ваш аркан: %s", arc17); }
+            if (sum == 18) { printf("Ваш аркан: %s", arc18); }
+            if (sum == 19) { printf("Ваш аркан: %s", arc19); }
+            if (sum == 20) { printf("Ваш аркан: %s", arc20); }
+            if (sum == 21) { printf("Ваш аркан: %s", arc21); }
+            if (sum == 22) { printf("Ваш аркан: %s", arc22); }
+            _getch();
+        }
+    }
+}
+
