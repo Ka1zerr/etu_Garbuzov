@@ -128,8 +128,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arcan_dz3.cpp" />
+    <ClCompile Include="kaizer.cpp" />
     <ClCompile Include="schit.cpp" />
-    <ClCompile Include="testfiles.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="kaizer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
