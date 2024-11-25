@@ -1,0 +1,4 @@
+﻿  schit.cpp
+C:\Users\madne\source\repos\Arcan_dz3\schit.cpp(164,10): warning C4101: log_file: неиспользованная локальная переменная
+C:\Users\madne\source\repos\Arcan_dz3\schit.cpp(165,10): warning C4101: info_file: неиспользованная локальная переменная
+  Arcan_dz3.vcxproj -> C:\Users\madne\source\repos\Arcan_dz3\x64\Debug\Arcan_dz3.exe
